@@ -1,9 +1,9 @@
-package net.gamershub.ghlib.gui;
+package io.github.chaosdave34.gui;
 
 import lombok.Getter;
 import lombok.NonNull;
-import net.gamershub.ghlib.GHLib;
-import net.gamershub.ghlib.enchantment.CustomEnchantment;
+import io.github.chaosdave34.GHLib;
+import io.github.chaosdave34.enchantment.CustomEnchantment;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
 import net.minecraft.world.entity.EquipmentSlot;

@@ -1,4 +1,4 @@
-package net.gamershub.ghlib.persistentdatatypes;
+package io.github.chaosdave34.persistentdatatypes;
 
 import org.bukkit.persistence.PersistentDataAdapterContext;
 import org.bukkit.persistence.PersistentDataType;

@@ -1,6 +1,6 @@
-package net.gamershub.ghlib.textdisplay;
+package io.github.chaosdave34.textdisplay;
 
-import net.gamershub.ghlib.Utils;
+import io.github.chaosdave34.Utils;
 import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;

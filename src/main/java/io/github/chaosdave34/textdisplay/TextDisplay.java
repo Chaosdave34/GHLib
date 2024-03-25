@@ -1,7 +1,7 @@
-package net.gamershub.ghlib.textdisplay;
+package io.github.chaosdave34.textdisplay;
 
 import lombok.Getter;
-import net.gamershub.ghlib.GHLib;
+import io.github.chaosdave34.GHLib;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import org.bukkit.Location;

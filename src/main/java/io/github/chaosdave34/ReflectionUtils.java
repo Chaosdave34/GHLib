@@ -1,4 +1,4 @@
-package net.gamershub.ghlib;
+package io.github.chaosdave34;
 
 import net.minecraft.core.MappedRegistry;
 import net.minecraft.core.Registry;

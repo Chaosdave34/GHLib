@@ -1,8 +1,8 @@
-package net.gamershub.ghlib.entity;
+package io.github.chaosdave34.entity;
 
 import com.destroystokyo.paper.event.entity.EntityAddToWorldEvent;
-import net.gamershub.ghlib.GHLib;
-import net.gamershub.ghlib.Utils;
+import io.github.chaosdave34.GHLib;
+import io.github.chaosdave34.Utils;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;

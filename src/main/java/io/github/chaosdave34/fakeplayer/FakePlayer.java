@@ -1,10 +1,10 @@
-package net.gamershub.ghlib.fakeplayer;
+package io.github.chaosdave34.fakeplayer;
 
 import com.mojang.datafixers.util.Pair;
+import io.github.chaosdave34.GHLib;
 import lombok.Getter;
 import lombok.Setter;
-import net.gamershub.ghlib.GHLib;
-import net.gamershub.ghlib.Utils;
+import io.github.chaosdave34.Utils;
 import net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket;
 import net.minecraft.network.protocol.game.ClientboundRemoveEntitiesPacket;
 import net.minecraft.network.protocol.game.ClientboundSetEquipmentPacket;

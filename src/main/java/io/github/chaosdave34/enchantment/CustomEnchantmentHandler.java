@@ -1,8 +1,8 @@
-package net.gamershub.ghlib.enchantment;
+package io.github.chaosdave34.enchantment;
 
 import lombok.Getter;
-import net.gamershub.ghlib.ReflectionUtils;
-import net.gamershub.ghlib.Utils;
+import io.github.chaosdave34.ReflectionUtils;
+import io.github.chaosdave34.Utils;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 

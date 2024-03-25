@@ -10,7 +10,7 @@ plugins {
     id("maven-publish")
 }
 
-group = "net.gamershub.ghlib"
+group = "io.github.chaosdave34"
 version = "0.1.0-SNAPSHOT"
 description = "Shared Library for Gamershub Paper Plugins"
 
@@ -28,8 +28,11 @@ dependencies {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            from(components["java"])
+            groupId = project.group.toString()
             artifactId = "ghlib"
+            version = project.version.toString()
+
+            from(components["java"])
         }
     }
     repositories {

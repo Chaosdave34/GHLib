@@ -1,7 +1,7 @@
-package net.gamershub.ghlib.enchantment;
+package io.github.chaosdave34.enchantment;
 
+import io.github.chaosdave34.GHLib;
 import lombok.Getter;
-import net.gamershub.ghlib.GHLib;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
