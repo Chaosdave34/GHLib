@@ -37,7 +37,7 @@ publishing {
             url = URI.create("https://maven.pkg.github.com/Chaosdave34/GHLib")
             credentials {
                 username = System.getenv("USERNAME")
-                username = System.getenv("TOKEN")
+                password = System.getenv("TOKEN")
             }
         }
     }
