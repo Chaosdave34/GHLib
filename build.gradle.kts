@@ -1,3 +1,5 @@
+import java.net.URI
+
 plugins {
     `java-library`
     id("io.papermc.paperweight.userdev") version "1.5.11"
@@ -23,19 +25,23 @@ dependencies {
     // paperweight.devBundle("com.example.paperfork", "1.20.4-R0.1-SNAPSHOT")
 }
 
-
-
 publishing {
     publications {
         create<MavenPublication>("maven") {
             from(components["java"])
         }
     }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = URI.create("https://maven.pkg.github.com/Chaosdave34/GHLib")
+            credentials {
+                username = System.getenv("USERNAME")
+                username = System.getenv("TOKEN")
+            }
+        }
+    }
 }
-
-
-
-
 
 tasks {
     // Configure reobfJar to run when invoking the build task
