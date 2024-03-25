@@ -1,6 +1,6 @@
-package io.github.chaosdave34;
+package io.github.chaosdave34.ghlib;
 
-import io.github.chaosdave34.persistentdatatypes.UUIDPersistentDataType;
+import io.github.chaosdave34.ghlib.persistentdatatypes.UUIDPersistentDataType;
 import org.bukkit.NamespacedKey;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataHolder;

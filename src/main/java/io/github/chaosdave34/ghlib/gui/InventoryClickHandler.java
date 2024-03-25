@@ -1,4 +1,4 @@
-package io.github.chaosdave34.gui;
+package io.github.chaosdave34.ghlib.gui;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

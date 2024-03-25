@@ -1,7 +1,6 @@
-package io.github.chaosdave34;
+package io.github.chaosdave34.ghlib;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket;
@@ -36,7 +35,7 @@ public class Utils {
         GHLib.PLUGIN.getServer().getPluginManager().registerEvents(listener, GHLib.PLUGIN);
     }
 
-    public static void writeObjectToFile(File file, Object object) {
+    public static void writeObjectToFile(@NotNull File file,  Object object) {
         try {
             FileOutputStream outputStream = new FileOutputStream(file);
             outputStream.write(new Gson().toJson(object).getBytes());
@@ -48,7 +47,7 @@ public class Utils {
     }
 
     @Nullable
-    public static <T> T readObjectFromFile(File file, Class<T> clazz) {
+    public static <T> T readObjectFromFile(@NotNull File file, Class<T> clazz) {
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
@@ -81,36 +80,6 @@ public class Utils {
             b = b * m / i;
 
         return b;
-    }
-
-    public static Map<UUID, Integer> loadHighescore(String name) {
-        try {
-            FileInputStream fileInputStream = new FileInputStream(new File(GHLib.PLUGIN.getDataFolder(), name));
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
-
-            while ((line = bufferedReader.readLine()) != null) {
-                stringBuilder.append(line);
-            }
-
-            bufferedReader.close();
-            inputStreamReader.close();
-            fileInputStream.close();
-
-            @SuppressWarnings("Convert2Diamond")
-            Map<UUID, Integer> highscore = new Gson().fromJson(stringBuilder.toString(), new TypeToken<Map<UUID, Integer>>() {
-            });
-
-            return highscore == null ? Collections.emptyMap() : highscore;
-
-
-        } catch (IOException e) {
-            GHLib.PLUGIN.getLogger().warning("Error while reading high scores from file! " + e.getMessage());
-        }
-        return Collections.emptyMap();
     }
 
     public static List<Location> generateSphere(Location centerBlock, int radius, boolean hollow) {
@@ -156,7 +125,7 @@ public class Utils {
         return circleBlocks;
     }
 
-    public static void spawnNmsEntity(Player p, Entity entity) {
+    public static void spawnNmsEntity(@NotNull Player p, @NotNull Entity entity) {
         CraftPlayer cp = (CraftPlayer) p;
         ServerPlayer sp = cp.getHandle();
         ServerGamePacketListenerImpl connection = sp.connection;

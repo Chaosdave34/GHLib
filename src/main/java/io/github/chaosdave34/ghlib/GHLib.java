@@ -1,11 +1,11 @@
-package io.github.chaosdave34;
+package io.github.chaosdave34.ghlib;
 
-import io.github.chaosdave34.enchantment.CustomEnchantmentHandler;
-import io.github.chaosdave34.entity.CustomEntityHandler;
-import io.github.chaosdave34.fakeplayer.FakePlayerHandler;
-import io.github.chaosdave34.gui.GuiHandler;
+import io.github.chaosdave34.ghlib.enchantment.CustomEnchantmentHandler;
+import io.github.chaosdave34.ghlib.entity.CustomEntityHandler;
+import io.github.chaosdave34.ghlib.fakeplayer.FakePlayerHandler;
+import io.github.chaosdave34.ghlib.textdisplay.TextDisplayHandler;
+import io.github.chaosdave34.ghlib.gui.GuiHandler;
 import lombok.Getter;
-import io.github.chaosdave34.textdisplay.TextDisplayHandler;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 

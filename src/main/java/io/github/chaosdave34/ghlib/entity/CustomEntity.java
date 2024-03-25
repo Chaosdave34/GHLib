@@ -1,8 +1,8 @@
-package io.github.chaosdave34.entity;
+package io.github.chaosdave34.ghlib.entity;
 
 import com.destroystokyo.paper.event.entity.EntityAddToWorldEvent;
+import io.github.chaosdave34.ghlib.GHLib;
 import lombok.Getter;
-import io.github.chaosdave34.GHLib;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Entity;

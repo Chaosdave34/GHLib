@@ -1,12 +1,12 @@
-package io.github.chaosdave34.fakeplayer;
+package io.github.chaosdave34.ghlib.fakeplayer;
 
 import com.destroystokyo.paper.event.player.PlayerUseUnknownEntityEvent;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import com.mojang.datafixers.util.Pair;
+import io.github.chaosdave34.ghlib.GHLib;
+import io.github.chaosdave34.ghlib.Utils;
 import io.netty.channel.embedded.EmbeddedChannel;
-import io.github.chaosdave34.GHLib;
-import io.github.chaosdave34.Utils;
 import net.minecraft.network.Connection;
 import net.minecraft.network.ConnectionProtocol;
 import net.minecraft.network.protocol.PacketFlow;
