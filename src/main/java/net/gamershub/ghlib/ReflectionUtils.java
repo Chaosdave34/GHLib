@@ -87,7 +87,7 @@ public class ReflectionUtils {
                 }
             }
         } catch (IllegalAccessException e) {
-            GHLib.PLUGIN.getLogger().warning("Error while to unfreeze registry.");
+            GHLib.PLUGIN.getLogger().warning("Error while unfreezing registry.");
         }
     }
 }
