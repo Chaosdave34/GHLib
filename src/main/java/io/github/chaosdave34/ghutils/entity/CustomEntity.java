@@ -1,7 +1,7 @@
-package io.github.chaosdave34.ghlib.entity;
+package io.github.chaosdave34.ghutils.entity;
 
 import com.destroystokyo.paper.event.entity.EntityAddToWorldEvent;
-import io.github.chaosdave34.ghlib.GHLib;
+import io.github.chaosdave34.ghutils.GHUtils;
 import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
@@ -17,7 +17,7 @@ public abstract class CustomEntity implements Listener {
 
     public CustomEntity(String id) {
         this.id = id;
-        GHLib.getEntityHandler().registerCustomEntity(this);
+        GHUtils.getEntityHandler().registerCustomEntity(this);
     }
 
     public abstract void spawn(Player p, Location location);
@@ -27,7 +27,7 @@ public abstract class CustomEntity implements Listener {
     protected boolean checkCustomEntity(Entity entity) {
         PersistentDataContainer container = entity.getPersistentDataContainer();
 
-        NamespacedKey customEntityKey = new NamespacedKey(GHLib.PLUGIN, "custom_entity");
+        NamespacedKey customEntityKey = new NamespacedKey(GHUtils.PLUGIN, "custom_entity");
         if (container.has(customEntityKey)) {
             String id = container.get(customEntityKey, PersistentDataType.STRING);
             return this.id.equals(id);

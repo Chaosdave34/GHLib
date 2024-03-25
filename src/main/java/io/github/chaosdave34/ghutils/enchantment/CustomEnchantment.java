@@ -1,6 +1,6 @@
-package io.github.chaosdave34.ghlib.enchantment;
+package io.github.chaosdave34.ghutils.enchantment;
 
-import io.github.chaosdave34.ghlib.GHLib;
+import io.github.chaosdave34.ghutils.GHUtils;
 import lombok.Getter;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.CommonComponents;
@@ -25,7 +25,7 @@ public class CustomEnchantment extends Enchantment implements Listener {
     }
 
     public org.bukkit.enchantments.Enchantment build() {
-        GHLib.getEnchantmentHandler().registerEnchantment(this);
+        GHUtils.getEnchantmentHandler().registerEnchantment(this);
 
         return CraftEnchantment.minecraftToBukkit(this);
     }

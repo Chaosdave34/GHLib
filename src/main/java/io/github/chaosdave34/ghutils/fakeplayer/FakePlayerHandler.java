@@ -1,11 +1,11 @@
-package io.github.chaosdave34.ghlib.fakeplayer;
+package io.github.chaosdave34.ghutils.fakeplayer;
 
 import com.destroystokyo.paper.event.player.PlayerUseUnknownEntityEvent;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import com.mojang.datafixers.util.Pair;
-import io.github.chaosdave34.ghlib.GHLib;
-import io.github.chaosdave34.ghlib.Utils;
+import io.github.chaosdave34.ghutils.GHUtils;
+import io.github.chaosdave34.ghutils.Utils;
 import io.netty.channel.embedded.EmbeddedChannel;
 import net.minecraft.network.Connection;
 import net.minecraft.network.ConnectionProtocol;
@@ -129,7 +129,7 @@ public class FakePlayerHandler implements Listener {
     }
 
     public void updatePose(FakePlayer fakePlayer) {
-        Bukkit.getScheduler().runTask(GHLib.PLUGIN, () -> fakePlayer.serverPlayer.setPose(fakePlayer.pose));
+        Bukkit.getScheduler().runTask(GHUtils.PLUGIN, () -> fakePlayer.serverPlayer.setPose(fakePlayer.pose));
 
         SynchedEntityData.DataItem<Pose> dataItem = new SynchedEntityData.DataItem<>(new EntityDataAccessor<>(6, EntityDataSerializers.POSE), fakePlayer.pose);
         updateEntityMetadata(fakePlayer, dataItem.value());

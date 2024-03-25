@@ -1,8 +1,8 @@
-package io.github.chaosdave34.ghlib.fakeplayer;
+package io.github.chaosdave34.ghutils.fakeplayer;
 
 import com.mojang.datafixers.util.Pair;
-import io.github.chaosdave34.ghlib.GHLib;
-import io.github.chaosdave34.ghlib.Utils;
+import io.github.chaosdave34.ghutils.GHUtils;
+import io.github.chaosdave34.ghutils.Utils;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket;
@@ -53,7 +53,7 @@ public class FakePlayer {
         this.yawHeadRotation = yaw;
         this.showOnPlayerSpawn = showOnPlayerSpawn;
 
-        GHLib.getFakePlayerHandler().registerFakePlayer(this);
+        GHUtils.getFakePlayerHandler().registerFakePlayer(this);
     }
 
     public void onAttack(Player p) {
@@ -65,14 +65,14 @@ public class FakePlayer {
     protected void updatePose(Pose pose) {
         if (this.pose != pose) {
             this.pose = pose;
-           GHLib.getFakePlayerHandler().updatePose(this);
+           GHUtils.getFakePlayerHandler().updatePose(this);
         }
     }
 
     protected void teleport(Location position) {
         if (!this.position.equals(position)) {
             this.position = position;
-           GHLib.getFakePlayerHandler().teleport(this);
+           GHUtils.getFakePlayerHandler().teleport(this);
         }
     }
 
@@ -90,27 +90,27 @@ public class FakePlayer {
 
             this.position = position;
 
-           GHLib.getFakePlayerHandler().move(this, deltaX, deltaY, deltaZ);
+           GHUtils.getFakePlayerHandler().move(this, deltaX, deltaY, deltaZ);
         }
     }
 
     protected void updateEquipment(EquipmentSlot slot, ItemStack itemStack) {
         if (!itemStack.equals(equipment.get(slot))) {
             equipment.put(slot, itemStack);
-           GHLib.getFakePlayerHandler().updateEquipment(this);
+           GHUtils.getFakePlayerHandler().updateEquipment(this);
         }
     }
 
     protected void animate(Animation animation) {
-       GHLib.getFakePlayerHandler().animate(this, animation.getId());
+       GHUtils.getFakePlayerHandler().animate(this, animation.getId());
     }
 
     protected void playHurtAnimation() {
-       GHLib.getFakePlayerHandler().playHurtAnimation(this);
+       GHUtils.getFakePlayerHandler().playHurtAnimation(this);
     }
 
     protected void updateHandState(boolean active, InteractionHand hand) {
-       GHLib.getFakePlayerHandler().updateHandState(this, active, hand);
+       GHUtils.getFakePlayerHandler().updateHandState(this, active, hand);
     }
 
     public void spawn(Player p) {

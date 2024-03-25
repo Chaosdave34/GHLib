@@ -1,15 +1,15 @@
-package io.github.chaosdave34.ghlib;
+package io.github.chaosdave34.ghutils;
 
-import io.github.chaosdave34.ghlib.enchantment.CustomEnchantmentHandler;
-import io.github.chaosdave34.ghlib.entity.CustomEntityHandler;
-import io.github.chaosdave34.ghlib.fakeplayer.FakePlayerHandler;
-import io.github.chaosdave34.ghlib.textdisplay.TextDisplayHandler;
-import io.github.chaosdave34.ghlib.gui.GuiHandler;
+import io.github.chaosdave34.ghutils.enchantment.CustomEnchantmentHandler;
+import io.github.chaosdave34.ghutils.entity.CustomEntityHandler;
+import io.github.chaosdave34.ghutils.fakeplayer.FakePlayerHandler;
+import io.github.chaosdave34.ghutils.textdisplay.TextDisplayHandler;
+import io.github.chaosdave34.ghutils.gui.GuiHandler;
 import lombok.Getter;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class GHLib extends JavaPlugin {
+public class GHUtils extends JavaPlugin {
     public static JavaPlugin PLUGIN;
     @Getter
     private static final CustomEnchantmentHandler enchantmentHandler = new CustomEnchantmentHandler();
@@ -24,7 +24,7 @@ public class GHLib extends JavaPlugin {
 
 
     public static void setPlugin(final JavaPlugin plugin) {
-        GHLib.PLUGIN = plugin;
+        GHUtils.PLUGIN = plugin;
 
         PluginManager pluginManager = plugin.getServer().getPluginManager();
 

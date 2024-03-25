@@ -1,8 +1,8 @@
-package io.github.chaosdave34.ghlib.entity;
+package io.github.chaosdave34.ghutils.entity;
 
 import com.destroystokyo.paper.event.entity.EntityAddToWorldEvent;
-import io.github.chaosdave34.ghlib.GHLib;
-import io.github.chaosdave34.ghlib.Utils;
+import io.github.chaosdave34.ghutils.GHUtils;
+import io.github.chaosdave34.ghutils.Utils;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
@@ -27,7 +27,7 @@ public class CustomEntityHandler implements Listener {
         Entity entity = e.getEntity();
         PersistentDataContainer container = entity.getPersistentDataContainer();
 
-        NamespacedKey customEntityKey = new NamespacedKey(GHLib.PLUGIN, "custom_entity");
+        NamespacedKey customEntityKey = new NamespacedKey(GHUtils.PLUGIN, "custom_entity");
         if (container.has(customEntityKey)) {
             String id = container.get(customEntityKey, PersistentDataType.STRING);
 

@@ -1,4 +1,4 @@
-package io.github.chaosdave34.ghlib;
+package io.github.chaosdave34.ghutils;
 
 import com.google.gson.Gson;
 import net.minecraft.network.protocol.Packet;
@@ -32,7 +32,7 @@ public class Utils {
     }
 
     public static void registerEvents(@NotNull Listener listener) {
-        GHLib.PLUGIN.getServer().getPluginManager().registerEvents(listener, GHLib.PLUGIN);
+        GHUtils.PLUGIN.getServer().getPluginManager().registerEvents(listener, GHUtils.PLUGIN);
     }
 
     public static void writeObjectToFile(@NotNull File file,  Object object) {
@@ -42,7 +42,7 @@ public class Utils {
             outputStream.flush();
             outputStream.close();
         } catch (IOException e) {
-            GHLib.PLUGIN.getLogger().warning("Error while writing object to file! " + e.getMessage());
+            GHUtils.PLUGIN.getLogger().warning("Error while writing object to file! " + e.getMessage());
         }
     }
 
@@ -66,7 +66,7 @@ public class Utils {
 
             return new Gson().fromJson(stringBuilder.toString(), clazz);
         } catch (IOException e) {
-            GHLib.PLUGIN.getLogger().warning("Error while reading object from file! " + e.getMessage());
+            GHUtils.PLUGIN.getLogger().warning("Error while reading object from file! " + e.getMessage());
             return null;
         }
     }

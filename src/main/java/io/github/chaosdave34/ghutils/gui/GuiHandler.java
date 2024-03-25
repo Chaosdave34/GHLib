@@ -1,4 +1,4 @@
-package io.github.chaosdave34.ghlib.gui;
+package io.github.chaosdave34.ghutils.gui;
 
 import lombok.Getter;
 import org.bukkit.event.EventHandler;

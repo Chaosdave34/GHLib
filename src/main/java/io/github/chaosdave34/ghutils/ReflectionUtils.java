@@ -1,4 +1,4 @@
-package io.github.chaosdave34.ghlib;
+package io.github.chaosdave34.ghutils;
 
 import net.minecraft.core.MappedRegistry;
 import net.minecraft.core.Registry;
@@ -25,7 +25,7 @@ public class ReflectionUtils {
             }
         } catch (IllegalAccessException e) {
             String message = "Error while getting private field value for " + mojangMapping + " in " + instance.getClass().getName() + ". " + e.getMessage();
-            GHLib.PLUGIN.getLogger().warning(message);
+            GHUtils.PLUGIN.getLogger().warning(message);
         }
         return result;
     }
@@ -51,7 +51,7 @@ public class ReflectionUtils {
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
             String message = "Error while getting private method return value for " + mojangMapping + " in " + instance.getClass().getName() + ". " + e.getMessage();
-            GHLib.PLUGIN.getLogger().warning(message);
+            GHUtils.PLUGIN.getLogger().warning(message);
         }
         return result;
     }
@@ -66,7 +66,7 @@ public class ReflectionUtils {
                 }
             }
         } catch (IllegalAccessException e) {
-            GHLib.PLUGIN.getLogger().warning("Error while setting private field value.");
+            GHUtils.PLUGIN.getLogger().warning("Error while setting private field value.");
         }
     }
 
@@ -87,7 +87,7 @@ public class ReflectionUtils {
                 }
             }
         } catch (IllegalAccessException e) {
-            GHLib.PLUGIN.getLogger().warning("Error while unfreezing registry.");
+            GHUtils.PLUGIN.getLogger().warning("Error while unfreezing registry.");
         }
     }
 }

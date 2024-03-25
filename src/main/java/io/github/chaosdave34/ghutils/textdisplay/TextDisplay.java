@@ -1,7 +1,7 @@
-package io.github.chaosdave34.ghlib.textdisplay;
+package io.github.chaosdave34.ghutils.textdisplay;
 
 import lombok.Getter;
-import io.github.chaosdave34.ghlib.GHLib;
+import io.github.chaosdave34.ghutils.GHUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import org.bukkit.Location;
@@ -24,7 +24,7 @@ public abstract class TextDisplay {
         this.position = position;
         this.lineCount = lineCount;
 
-        GHLib.getTextDisplayHandler().registerTextDisplay(this);
+        GHUtils.getTextDisplayHandler().registerTextDisplay(this);
     }
 
     public abstract @NotNull List<Component> getLines(Player p);

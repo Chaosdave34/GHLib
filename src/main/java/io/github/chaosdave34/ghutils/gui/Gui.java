@@ -1,7 +1,7 @@
-package io.github.chaosdave34.ghlib.gui;
+package io.github.chaosdave34.ghutils.gui;
 
-import io.github.chaosdave34.ghlib.GHLib;
-import io.github.chaosdave34.ghlib.enchantment.CustomEnchantment;
+import io.github.chaosdave34.ghutils.GHUtils;
+import io.github.chaosdave34.ghutils.enchantment.CustomEnchantment;
 import lombok.Getter;
 import lombok.NonNull;
 import net.kyori.adventure.text.Component;
@@ -72,7 +72,7 @@ public abstract class Gui {
     public void show(Player p) {
         Inventory inv = Bukkit.createInventory(null, rows * 9, title);
         p.openInventory(build(p, inv));
-        GHLib.getGuiHandler().getOpenGuis().put(p.getUniqueId(), this);
+        GHUtils.getGuiHandler().getOpenGuis().put(p.getUniqueId(), this);
     }
 
     public void onInventoryClose(InventoryCloseEvent e) {
@@ -87,7 +87,7 @@ public abstract class Gui {
             try {
                 inventoryClickHandlers.get(e.getRawSlot()).invoke(this, e);
             } catch (IllegalAccessException | InvocationTargetException ex) {
-                GHLib.PLUGIN.getLogger().warning("Error while executing button handler method. " + ex.getMessage());
+                GHUtils.PLUGIN.getLogger().warning("Error while executing button handler method. " + ex.getMessage());
             }
         }
     }

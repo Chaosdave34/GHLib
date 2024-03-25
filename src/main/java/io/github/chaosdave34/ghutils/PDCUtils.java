@@ -1,6 +1,6 @@
-package io.github.chaosdave34.ghlib;
+package io.github.chaosdave34.ghutils;
 
-import io.github.chaosdave34.ghlib.persistentdatatypes.UUIDPersistentDataType;
+import io.github.chaosdave34.ghutils.persistentdatatypes.UUIDPersistentDataType;
 import org.bukkit.NamespacedKey;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataHolder;
@@ -10,8 +10,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.UUID;
 
 public class PDCUtils {
-    private static final NamespacedKey OWNER_KEY = new NamespacedKey(GHLib.PLUGIN, "owner");
-    private static final NamespacedKey ID_KEY = new NamespacedKey(GHLib.PLUGIN, "id");
+    private static final NamespacedKey OWNER_KEY = new NamespacedKey(GHUtils.PLUGIN, "owner");
+    private static final NamespacedKey ID_KEY = new NamespacedKey(GHUtils.PLUGIN, "id");
 
     public static void setOwner(PersistentDataHolder holder, UUID uuid) {
         PersistentDataContainer container = holder.getPersistentDataContainer();
