@@ -32,6 +32,7 @@ import org.bukkit.craftbukkit.v1_20_R3.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
@@ -94,9 +95,14 @@ public class FakePlayerHandler implements Listener {
         }
     }
 
+    @EventHandler
+    public void onWorldChange(PlayerChangedWorldEvent e) {
+        spawnFakePlayers(e.getPlayer());
+    }
+
     public void spawnFakePlayers(Player p){
         for (FakePlayer fakePlayer : fakePlayers) {
-            if (fakePlayer.isShowOnPlayerSpawn())
+            if (fakePlayer.isShowOnPlayerSpawn() && fakePlayer.getWorldName().equals(p.getWorld().getName()))
                 fakePlayer.spawn(p);
         }
     }

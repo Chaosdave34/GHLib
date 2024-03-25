@@ -15,6 +15,7 @@ import org.bukkit.craftbukkit.v1_20_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 
 import java.util.ArrayList;
@@ -57,13 +58,20 @@ public class TextDisplayHandler implements Listener {
         }
     }
 
+    @EventHandler
+    public void onWorldChange(PlayerChangedWorldEvent e) {
+        spawnTextDisplays(e.getPlayer());
+    }
+
     public void spawnTextDisplays(Player p) {
         for (TextDisplay textDisplay : textDisplays) {
-            for (int i = 0; i < textDisplay.getLineCount(); i++) {
-                ArmorStand armorStand = textDisplay.getArmorStands().get(i);
-                armorStand.setCustomName(textDisplay.getLines(p).get(i));
+            if (textDisplay.getWorldName().equals(p.getWorld().getName())) {
+                for (int i = 0; i < textDisplay.getLineCount(); i++) {
+                    ArmorStand armorStand = textDisplay.getArmorStands().get(i);
+                    armorStand.setCustomName(textDisplay.getLines(p).get(i));
 
-                Utils.spawnNmsEntity(p, armorStand);
+                    Utils.spawnNmsEntity(p, armorStand);
+                }
             }
         }
     }
