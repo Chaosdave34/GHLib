@@ -1,1 +1,1 @@
-Shared Library for Gamershub Paper Plugins
+Utilities for Gamershub Paper Plugins

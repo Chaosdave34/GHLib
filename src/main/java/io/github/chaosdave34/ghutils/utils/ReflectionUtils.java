@@ -1,5 +1,6 @@
-package io.github.chaosdave34.ghutils;
+package io.github.chaosdave34.ghutils.utils;
 
+import io.github.chaosdave34.ghutils.GHUtils;
 import net.minecraft.core.MappedRegistry;
 import net.minecraft.core.Registry;
 import org.jetbrains.annotations.Nullable;

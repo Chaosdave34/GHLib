@@ -1,5 +1,6 @@
-package io.github.chaosdave34.ghutils;
+package io.github.chaosdave34.ghutils.utils;
 
+import io.github.chaosdave34.ghutils.GHUtils;
 import io.github.chaosdave34.ghutils.persistentdatatypes.UUIDPersistentDataType;
 import org.bukkit.NamespacedKey;
 import org.bukkit.persistence.PersistentDataContainer;

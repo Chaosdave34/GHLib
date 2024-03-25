@@ -1,3 +1,4 @@
+import io.papermc.paperweight.userdev.internal.setup.util.genSources
 import java.net.URI
 
 plugins {
@@ -11,12 +12,14 @@ plugins {
 }
 
 group = "io.github.chaosdave34"
-version = "0.2.0-SNAPSHOT"
-description = "Shared Library for Gamershub Paper Plugins"
+version = "0.2.1-SNAPSHOT"
+description = "Utilities for Gamershub Paper Plugins"
 
 java {
     // Configure the java toolchain. This allows gradle to auto-provision JDK 17 on systems that only have JDK 8 installed for example.
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+
+    withSourcesJar()
 }
 
 dependencies {

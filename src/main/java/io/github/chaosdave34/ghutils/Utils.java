@@ -1,6 +1,5 @@
 package io.github.chaosdave34.ghutils;
 
-import com.google.gson.Gson;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket;
@@ -9,15 +8,12 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.network.ServerGamePacketListenerImpl;
 import net.minecraft.world.entity.Entity;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_20_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import java.io.*;
-import java.util.*;
+import java.util.List;
 
 @SuppressWarnings("unused")
 public class Utils {
@@ -35,95 +31,7 @@ public class Utils {
         GHUtils.PLUGIN.getServer().getPluginManager().registerEvents(listener, GHUtils.PLUGIN);
     }
 
-    public static void writeObjectToFile(@NotNull File file,  Object object) {
-        try {
-            FileOutputStream outputStream = new FileOutputStream(file);
-            outputStream.write(new Gson().toJson(object).getBytes());
-            outputStream.flush();
-            outputStream.close();
-        } catch (IOException e) {
-            GHUtils.PLUGIN.getLogger().warning("Error while writing object to file! " + e.getMessage());
-        }
-    }
 
-    @Nullable
-    public static <T> T readObjectFromFile(@NotNull File file, Class<T> clazz) {
-        try {
-            FileInputStream fileInputStream = new FileInputStream(file);
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
-
-            while ((line = bufferedReader.readLine()) != null) {
-                stringBuilder.append(line);
-            }
-
-            bufferedReader.close();
-            inputStreamReader.close();
-            fileInputStream.close();
-
-            return new Gson().fromJson(stringBuilder.toString(), clazz);
-        } catch (IOException e) {
-            GHUtils.PLUGIN.getLogger().warning("Error while reading object from file! " + e.getMessage());
-            return null;
-        }
-    }
-
-    public static int binomialCoefficient(int n, int k) {
-        if (k > n - k)
-            k = n - k;
-
-        int b = 1;
-        for (int i = 1, m = n; i <= k; i++, m--)
-            b = b * m / i;
-
-        return b;
-    }
-
-    public static List<Location> generateSphere(Location centerBlock, int radius, boolean hollow) {
-        List<Location> sphereBlocks = new ArrayList<>();
-
-        int bx = centerBlock.getBlockX();
-        int by = centerBlock.getBlockY();
-        int bz = centerBlock.getBlockZ();
-
-        for (int x = bx - radius; x <= bx + radius; x++) {
-            for (int y = by - radius; y <= by + radius; y++) {
-                for (int z = bz - radius; z <= bz + radius; z++) {
-                    double distance = ((bx - x) * (bx - x) + ((bz - z) * (bz - z)) + ((by - y) * (by - y)));
-
-                    if (distance < radius * radius && !(hollow && distance < ((radius - 1) * (radius - 1)))) {
-                        Location l = new Location(centerBlock.getWorld(), x, y, z);
-                        sphereBlocks.add(l);
-                    }
-                }
-            }
-        }
-
-        return sphereBlocks;
-    }
-
-    public static List<Location> generateCircle(Location centerBlock, int radius, boolean hollow) {
-        List<Location> circleBlocks = new ArrayList<>();
-
-        int bx = centerBlock.getBlockX();
-        int bz = centerBlock.getBlockZ();
-
-        for (int x = bx - radius; x <= bx + radius; x++) {
-            for (int z = bz - radius; z <= bz + radius; z++) {
-                double distance = ((bx - x) * (bx - x) + ((bz - z) * (bz - z)));
-
-                if (distance < radius * radius && !(hollow && distance < ((radius - 1) * (radius - 1)))) {
-                    Location l = new Location(centerBlock.getWorld(), x, centerBlock.getBlockY(), z);
-                    circleBlocks.add(l);
-                }
-
-            }
-        }
-        return circleBlocks;
-    }
 
     public static void spawnNmsEntity(@NotNull Player p, @NotNull Entity entity) {
         CraftPlayer cp = (CraftPlayer) p;
