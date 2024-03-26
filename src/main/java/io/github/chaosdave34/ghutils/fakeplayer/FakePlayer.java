@@ -19,6 +19,7 @@ import org.bukkit.craftbukkit.v1_20_R3.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,23 +57,23 @@ public class FakePlayer {
         GHUtils.getFakePlayerHandler().registerFakePlayer(this);
     }
 
-    public void onAttack(Player p) {
+    public void onAttack(@NotNull Player p) {
     }
 
-    public void onInteract(Player p, EquipmentSlot hand) {
+    public void onInteract(@NotNull Player p, @NotNull EquipmentSlot hand) {
     }
 
     protected void updatePose(Pose pose) {
         if (this.pose != pose) {
             this.pose = pose;
-           GHUtils.getFakePlayerHandler().updatePose(this);
+            GHUtils.getFakePlayerHandler().updatePose(this);
         }
     }
 
     protected void teleport(Location position) {
         if (!this.position.equals(position)) {
             this.position = position;
-           GHUtils.getFakePlayerHandler().teleport(this);
+            GHUtils.getFakePlayerHandler().teleport(this);
         }
     }
 
@@ -90,27 +91,27 @@ public class FakePlayer {
 
             this.position = position;
 
-           GHUtils.getFakePlayerHandler().move(this, deltaX, deltaY, deltaZ);
+            GHUtils.getFakePlayerHandler().move(this, deltaX, deltaY, deltaZ);
         }
     }
 
     protected void updateEquipment(EquipmentSlot slot, ItemStack itemStack) {
         if (!itemStack.equals(equipment.get(slot))) {
             equipment.put(slot, itemStack);
-           GHUtils.getFakePlayerHandler().updateEquipment(this);
+            GHUtils.getFakePlayerHandler().updateEquipment(this);
         }
     }
 
     protected void animate(Animation animation) {
-       GHUtils.getFakePlayerHandler().animate(this, animation.getId());
+        GHUtils.getFakePlayerHandler().animate(this, animation.getId());
     }
 
     protected void playHurtAnimation() {
-       GHUtils.getFakePlayerHandler().playHurtAnimation(this);
+        GHUtils.getFakePlayerHandler().playHurtAnimation(this);
     }
 
     protected void updateHandState(boolean active, InteractionHand hand) {
-       GHUtils.getFakePlayerHandler().updateHandState(this, active, hand);
+        GHUtils.getFakePlayerHandler().updateHandState(this, active, hand);
     }
 
     public void spawn(Player p) {

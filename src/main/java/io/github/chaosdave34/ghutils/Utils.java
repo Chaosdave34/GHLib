@@ -31,8 +31,6 @@ public class Utils {
         GHUtils.PLUGIN.getServer().getPluginManager().registerEvents(listener, GHUtils.PLUGIN);
     }
 
-
-
     public static void spawnNmsEntity(@NotNull Player p, @NotNull Entity entity) {
         CraftPlayer cp = (CraftPlayer) p;
         ServerPlayer sp = cp.getHandle();

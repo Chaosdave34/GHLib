@@ -33,7 +33,7 @@ public abstract class Gui {
 
     protected final Map<Integer, Method> inventoryClickHandlers = new HashMap<>();
 
-    private final Enchantment emptyEnchantment = new CustomEnchantment("empty", 1, "EMPTY", EnchantmentCategory.BREAKABLE, EquipmentSlot.values()).build();
+    protected final Enchantment emptyEnchantment = new CustomEnchantment("empty", 1, "EMPTY", EnchantmentCategory.BREAKABLE, EquipmentSlot.values()).build();
 
     public Gui(int rows, Component title, boolean locked) {
         this.rows = rows;
