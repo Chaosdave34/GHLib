@@ -92,5 +92,12 @@ public abstract class Gui {
         }
     }
 
-
+    protected void fillEmpty(Inventory inventory, Material material) {
+        ItemStack[] content =  inventory.getContents();
+        for (int slot = 0; slot < content.length; slot++){
+            if (content[slot] == null)
+                content[slot] = new ItemStack(material);
+        }
+        inventory.setContents(content);
+    }
 }
