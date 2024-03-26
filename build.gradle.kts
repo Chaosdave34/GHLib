@@ -1,4 +1,3 @@
-import io.papermc.paperweight.userdev.internal.setup.util.genSources
 import java.net.URI
 
 plugins {
@@ -37,7 +36,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = URI.create("https://maven.pkg.github.com/Chaosdave34/GHLib")
+            url = URI.create("https://maven.pkg.github.com/Chaosdave34/GHUtils")
             credentials {
                 username = System.getenv("USERNAME")
                 password = System.getenv("TOKEN")
