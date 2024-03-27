@@ -100,7 +100,7 @@ public class FakePlayerHandler implements Listener {
         spawnFakePlayers(e.getPlayer());
     }
 
-    public void spawnFakePlayers(Player p){
+    public void spawnFakePlayers(Player p) {
         for (FakePlayer fakePlayer : fakePlayers) {
             if (fakePlayer.isShowOnPlayerSpawn() && fakePlayer.getWorldName().equals(p.getWorld().getName()))
                 fakePlayer.spawn(p);
@@ -123,7 +123,9 @@ public class FakePlayerHandler implements Listener {
             if (e.isAttack()) {
                 fakePlayer.onAttack(p);
             } else {
-                fakePlayer.onInteract(p, e.getHand());
+                fakePlayer.onAllInteract(p, e.getHand());
+                if (e.getClickedRelativePosition() != null && e.getHand() == EquipmentSlot.HAND)
+                    fakePlayer.onActualInteract(p);
             }
         }
     }

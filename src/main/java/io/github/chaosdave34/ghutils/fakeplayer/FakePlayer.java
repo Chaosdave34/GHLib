@@ -60,7 +60,10 @@ public class FakePlayer {
     public void onAttack(@NotNull Player p) {
     }
 
-    public void onInteract(@NotNull Player p, @NotNull EquipmentSlot hand) {
+    public void onAllInteract(@NotNull Player p, @NotNull EquipmentSlot hand) {
+    }
+
+    public void onActualInteract(@NotNull Player p) {
     }
 
     protected void updatePose(Pose pose) {
