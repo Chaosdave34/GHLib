@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "io.github.chaosdave34"
-version = "0.2.2-SNAPSHOT"
+version = "0.2.3-SNAPSHOT"
 description = "Utilities for Gamershub Paper Plugins"
 
 java {
