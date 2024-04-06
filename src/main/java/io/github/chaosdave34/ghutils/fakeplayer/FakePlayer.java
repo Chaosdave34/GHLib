@@ -5,6 +5,7 @@ import io.github.chaosdave34.ghutils.GHUtils;
 import io.github.chaosdave34.ghutils.Utils;
 import lombok.Getter;
 import lombok.Setter;
+import net.minecraft.network.protocol.game.ClientboundPlayerInfoRemovePacket;
 import net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket;
 import net.minecraft.network.protocol.game.ClientboundRemoveEntitiesPacket;
 import net.minecraft.network.protocol.game.ClientboundSetEquipmentPacket;
@@ -136,6 +137,9 @@ public class FakePlayer {
             ClientboundSetEquipmentPacket equipmentPacket = new ClientboundSetEquipmentPacket(npc.getId(), equipment);
             connection.send(equipmentPacket);
         }
+
+        ClientboundPlayerInfoRemovePacket removePacket = new ClientboundPlayerInfoRemovePacket(List.of(npc.getUUID()));
+        connection.send(removePacket);
     }
 
     protected void despawn() {
