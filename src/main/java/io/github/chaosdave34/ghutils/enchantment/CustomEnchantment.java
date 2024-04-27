@@ -5,22 +5,21 @@ import lombok.Getter;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import org.bukkit.craftbukkit.v1_20_R3.enchantments.CraftEnchantment;
+import org.bukkit.craftbukkit.enchantments.CraftEnchantment;
 import org.bukkit.event.Listener;
 import org.jetbrains.annotations.NotNull;
 
 @Getter
 public class CustomEnchantment extends Enchantment implements Listener {
     protected String id;
-    protected int maxLevel;
 
-    public CustomEnchantment(String id, int maxLevel, String displayName, EnchantmentCategory category, EquipmentSlot... equipmentSlots) {
-        super(Rarity.COMMON, category, equipmentSlots);
+    public CustomEnchantment(String id, int maxLevel, String displayName, TagKey<Item> supportedItems, EquipmentSlot... equipmentSlots) {
+        super(Enchantment.definition(supportedItems, 0, maxLevel, new Cost(0, 0), new Cost(0, 0), 0, equipmentSlots));
         this.id = id;
-        this.maxLevel = maxLevel;
         this.descriptionId = displayName;
     }
 

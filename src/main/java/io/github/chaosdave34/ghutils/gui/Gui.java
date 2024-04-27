@@ -6,8 +6,8 @@ import lombok.Getter;
 import lombok.NonNull;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -33,7 +33,7 @@ public abstract class Gui {
 
     protected final Map<Integer, Method> inventoryClickHandlers = new HashMap<>();
 
-    protected final Enchantment emptyEnchantment = new CustomEnchantment("empty", 1, "EMPTY", EnchantmentCategory.BREAKABLE, EquipmentSlot.values()).build();
+    protected final Enchantment emptyEnchantment = new CustomEnchantment("empty", 1, "EMPTY", ItemTags.DIRT, EquipmentSlot.values()).build();
 
     public Gui(int rows, Component title, boolean locked) {
         this.rows = rows;
@@ -57,11 +57,11 @@ public abstract class Gui {
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.displayName(name);
         if (hideAttributes) {
-            itemMeta.addItemFlags(ItemFlag.HIDE_ITEM_SPECIFICS);
+            itemMeta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
             itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         }
-        if (glint)
-            itemMeta.addEnchant(emptyEnchantment, 1, true); // Hacky way to add enchantment glint
+
+        itemMeta.setEnchantmentGlintOverride(glint);
 
         itemStack.setItemMeta(itemMeta);
         return itemStack;

@@ -8,7 +8,6 @@ import io.github.chaosdave34.ghutils.GHUtils;
 import io.github.chaosdave34.ghutils.Utils;
 import io.netty.channel.embedded.EmbeddedChannel;
 import net.minecraft.network.Connection;
-import net.minecraft.network.ConnectionProtocol;
 import net.minecraft.network.protocol.PacketFlow;
 import net.minecraft.network.protocol.game.*;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -25,10 +24,10 @@ import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.player.ChatVisiblity;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.v1_20_R3.CraftEquipmentSlot;
-import org.bukkit.craftbukkit.v1_20_R3.CraftServer;
-import org.bukkit.craftbukkit.v1_20_R3.CraftWorld;
-import org.bukkit.craftbukkit.v1_20_R3.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.CraftEquipmentSlot;
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.CraftWorld;
+import org.bukkit.craftbukkit.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -75,11 +74,11 @@ public class FakePlayerHandler implements Listener {
 
         Connection c = new Connection(PacketFlow.SERVERBOUND);
         c.channel = new EmbeddedChannel();
-        c.channel.attr(Connection.ATTRIBUTE_CLIENTBOUND_PROTOCOL).set(ConnectionProtocol.PLAY.codec(PacketFlow.CLIENTBOUND));
-        c.channel.attr(Connection.ATTRIBUTE_SERVERBOUND_PROTOCOL).set(ConnectionProtocol.PLAY.codec(PacketFlow.SERVERBOUND));
+//        c.channel.attr(Connection.ATTRIBUTE_CLIENTBOUND_PROTOCOL).set(ConnectionProtocol.PLAY.codec(PacketFlow.CLIENTBOUND));
+//        c.channel.attr(Connection.ATTRIBUTE_SERVERBOUND_PROTOCOL).set(ConnectionProtocol.PLAY.codec(PacketFlow.SERVERBOUND));
 
         c.address = new InetSocketAddress("localhost", 0);
-        new ServerGamePacketListenerImpl(server, c, npc, new CommonListenerCookie(profile, 0, info));
+        new ServerGamePacketListenerImpl(server, c, npc, new CommonListenerCookie(profile, 0, info, false));
 
         fakePlayer.setServerPlayer(npc);
     }
