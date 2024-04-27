@@ -1,16 +1,12 @@
 package io.github.chaosdave34.ghutils.gui;
 
 import io.github.chaosdave34.ghutils.GHUtils;
-import io.github.chaosdave34.ghutils.enchantment.CustomEnchantment;
 import lombok.Getter;
 import lombok.NonNull;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.world.entity.EquipmentSlot;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -32,8 +28,6 @@ public abstract class Gui {
     protected final Map<Integer, ItemStack> content = new HashMap<>();
 
     protected final Map<Integer, Method> inventoryClickHandlers = new HashMap<>();
-
-    protected final Enchantment emptyEnchantment = new CustomEnchantment("empty", 1, "EMPTY", ItemTags.DIRT, EquipmentSlot.values()).build();
 
     public Gui(int rows, Component title, boolean locked) {
         this.rows = rows;

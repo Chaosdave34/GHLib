@@ -1,6 +1,5 @@
 package io.github.chaosdave34.ghutils;
 
-import io.github.chaosdave34.ghutils.enchantment.CustomEnchantmentHandler;
 import io.github.chaosdave34.ghutils.entity.CustomEntityHandler;
 import io.github.chaosdave34.ghutils.fakeplayer.FakePlayerHandler;
 import io.github.chaosdave34.ghutils.textdisplay.TextDisplayHandler;
@@ -12,8 +11,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class GHUtils extends JavaPlugin {
     public static JavaPlugin PLUGIN;
     @Getter
-    private static final CustomEnchantmentHandler enchantmentHandler = new CustomEnchantmentHandler();
-    @Getter
     private static final GuiHandler guiHandler = new GuiHandler();
     @Getter
     private static final TextDisplayHandler textDisplayHandler = new TextDisplayHandler();
@@ -21,7 +18,6 @@ public class GHUtils extends JavaPlugin {
     private static final FakePlayerHandler fakePlayerHandler = new FakePlayerHandler();
     @Getter
     private static final CustomEntityHandler entityHandler = new CustomEntityHandler();
-
 
     public static void setPlugin(final JavaPlugin plugin) {
         GHUtils.PLUGIN = plugin;
