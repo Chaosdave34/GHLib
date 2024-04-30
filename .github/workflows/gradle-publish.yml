@@ -11,7 +11,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        java: [ 17 ]
+        java: [ 21 ]
       fail-fast: true
     steps:
     - uses: actions/checkout@v4
