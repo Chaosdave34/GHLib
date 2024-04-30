@@ -85,10 +85,7 @@ tasks {
 // Configure plugin.yml generation
 // - name, version, and description are inherited from the Gradle project.
 bukkitPluginYaml {
-    name = project.name
-    version = project.version.toString()
     main = "io.github.chaosdave34.ghutils.GHUtils"
-    description = project.description
     load = BukkitPluginYaml.PluginLoadOrder.STARTUP
     authors.add("Chaosdave34")
     apiVersion = "1.20.5"
